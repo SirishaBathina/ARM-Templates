@@ -1,0 +1,30 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "functions": [],
+    "variables": {},
+    "resources": [
+        {
+            "name": "app-interface",
+            "type": "Microsoft.Network/networkInterfaces",
+            "apiVersion": "2022-09-01",
+            "location": "North Europe",
+            "properties": {
+                "ipConfigurations": [
+                    {
+                        "name": "ipConfig1",
+                        "properties": {
+                            "privateIPAllocationMethod": "Dynamic",
+                            "subnet": {
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', 'app-network', 'subnet-A')]"
+                            },
+                        "publicIPAddresses":{
+                            "id":"[resourceId('Microsoft.Network/publicAddresses', 'app-ip')]"                  }                    }
+                    }
+                ]
+            }
+        }
+    ],
+    "outputs": {}
+}
