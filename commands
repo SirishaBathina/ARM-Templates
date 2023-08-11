@@ -1,5 +1,10 @@
+Powershell
 Install-Module -Name Az -AllowClobber -Scope CurrentUser
 Import-Module Az
-
 Connect-AzAccount                           ===>To connect Azure account
 New-AzResourceGroupDeployment -ResourceGroupName app-grp  -TemplateFile template01.json
+
+CLI
+az login
+az group create --location "North Europe" --name "app-grp"
+az network vnet create --name "app-network" --resource-group "app-grp" --subnet-name "SubnetA" --address-prefixes 10.0.0.0/16
