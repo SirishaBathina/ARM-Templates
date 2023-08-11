@@ -1,2 +1,5 @@
+Install-Module -Name Az -AllowClobber -Scope CurrentUser
+Import-Module Az
+
 Connect-AzAccount                           ===>To connect Azure account
 New-AzResourceGroupDeployment -ResourceGroupName app-grp  -TemplateFile template01.json
